@@ -5,59 +5,119 @@ import sys
 import mariadb
 import json
 import bigcommerce
+from pyparsing import nums
 import requests
 from copy import copy
 # The common module provides setup functionality used by the samples,
 # such as authentication and unique id generation.
 from shopping.content import common
-
+from shopping.content.products.insert_batch import BATCH_SIZE
+from datetime import datetime
 requests = []
 
-def submitRequest(requestBody):
-    requests.append(requestBody)
-    if(len(requestBody) >= 100):
-        startCount = len(re)
-        service, config, _ = common.init(argv, __doc__)
-        merchant_id = config['merchantId']
-
-        batch = {
-            'entries': [{
-                'batchId': i,
-                'merchantId': merchant_id,
-                'method': 'insert',
-                'product': sample.create_product_sample(
-                    config,
-                    'book#%s' % common.get_unique_id(),
-                    title='This is book number %d' % i,
-                    price={
-                        'value': '%d.50' % i,
-                        'currency': 'USD',
-                    }),
-                } for i in range(BATCH_SIZE)],
-        }
-
-        request = service.products().custombatch(body=batch)
-        result = request.execute()
-
-        if result['kind'] == 'content#productsCustomBatchResponse':
-            entries = result['entries']
-            for entry in entries:
-                product = entry.get('product')
-                errors = entry.get('errors')
-                if product:
-                    print('Product "%s" with offerId "%s" was created.' %
-                        (product['id'], product['offerId']))
-                elif errors:
-                    print('Errors for batch entry %d:' % entry['batchId'])
-                    print(json.dumps(errors, sort_keys=True, indent=2,
-                                    separators=(',', ': ')))
-        else:
-            print('There was an error. Response: %s' % result)
+def isValidNumber(numString):
+    if(len(numString) > 0):
+        for c in numString:
+            if((not c.isdigit()) and (c != '.')):
+                return False
+    else:
+        return False
+    return True
 
 def main(argv):
 
+    # # Test to see how long BigC calls take to respond
+    # api = bigcommerce.api.BigcommerceApi(client_id='gnw0dh7xzx97ck9pw4kwpthvefui412', store_hash='z84xkjcnbz', access_token='tqhvp7fmyqr438pewjwtcwi1vggxpky')
+    # current_time = datetime.now().strftime("%H:%M:%S")
+    # print("Current Time =", current_time)
+    # singleProdBigCInfo = api.Products.get(16097)
+    # print(singleProdBigCInfo)
+    # current_time = datetime.now().strftime("%H:%M:%S")
+    # print("Current Time =", current_time)
+    # quit()
+    # # End of test
+
+
+
+
+    def submitRequest(requestBody, isLast):
+        # print('Submission #'+ str(len(requests)) + ' received')
+        BATCH_SIZE = 50
+
+        requests.append({
+            'batchId': len(requests),
+            'merchantId': '507522930',
+            'method': 'insert',
+            'product': requestBody,
+            'updateMask': 'availability,brand,channel,condition,contentLanguage,customAttributes,description,id,imageLink,link,maxHandlingTime,minHandlingTime,pmn,offerId,price,productHeight,productLength,productWeight,productWidth,sellOnGoogleQuantity,targetCountry,title'
+            })
+        # print('length of requests: ' + str(len(requests)))
+        if((len(requests) >= BATCH_SIZE) or (isLast)):
+            try:
+                conn4 = mariadb.connect(
+                    user="root",
+                    password="5LUxZA2CnEmZQ8dm",
+                    host="127.0.0.1",
+                    port=3306,
+                    database="safetymediaapp"
+                )
+                print('connected')
+            except mariadb.Error as e:
+                print(f"Error connecting to MariaDB Platform: {e}")
+                sys.exit(1)
+            cur4 = conn4.cursor()
+            # print('Starting submission')
+            # startCount = len(requestBody)
+            service, config, _ = common.init(argv, __doc__)
+            # merchant_id = config['merchantId']
+
+            batch = {
+                'entries': requests
+            }
+            # count = 0
+            # for product in requests:
+
+            # batch = {
+            #     'entries': [{
+            #         'batchId': startCount + i,
+            #         'merchantId': merchant_id,
+            #         'method': 'insert',
+            #         'product': requests[i],
+            #         } for i in range(BATCH_SIZE)],
+            # }
+            # print(json.dumps(batch, indent=4, sort_keys=True))
+            finishedProducts = []
+            request = service.products().custombatch(body=batch)
+            result = request.execute()
+            # print(json.dumps(result, indent=4, sort_keys=True))
+            if result['kind'] == 'content#productsCustomBatchResponse':
+                entries = result['entries']
+                for entry in entries:
+                    product = entry.get('product')
+                    errors = entry.get('errors')
+                    if product:
+                        1
+                        # print('Product "%s" with offerId "%s" was created.' %
+                        #     (product['id'], product['offerId']))
+                        finishedProducts.append(product['offerId'])
+                        print(product['offerId'])
+                        cur4.execute("UPDATE product SET statusMerchantCenter='1' WHERE sku='" + product['offerId'].lstrip().rstrip() + "'")
+                        # cur4.execute("UPDATE product SET statusMerchantCenter='1' WHERE sku='" + temp + "'")
+                        cur4.execute("SELECT statusMerchantCenter FROM product WHERE sku='LI72V'")
+
+                    elif errors:
+                        print('Errors for batch entry %d:' % entry['batchId'])
+                        print(json.dumps(errors, sort_keys=True, indent=2, separators=(',', ': ')))
+            else:
+                print('There was an error. Response: %s' % result)
+            requests.clear()
+            # inValues = "('" + ("','".join(finishedProducts)) + "')"
+
+            # sqlCommand = "UPDATE product SET statusMerchantCenter='1' WHERE sku IN " + inValues
+            # print(sqlCommand)
+
+
     api = bigcommerce.api.BigcommerceApi(client_id='gnw0dh7xzx97ck9pw4kwpthvefui412', store_hash='z84xkjcnbz', access_token='tqhvp7fmyqr438pewjwtcwi1vggxpky')
-    # print(api.Products.get(21742).variant())
 
     v3client = bigcommerce.connection.OAuthConnection(client_id='gnw0dh7xzx97ck9pw4kwpthvefui412',
                                                       store_hash='z84xkjcnbz',
@@ -81,16 +141,23 @@ def main(argv):
     # Get Cursor
     cur = conn.cursor()
     # cur.execute("SELECT * FROM product WHERE statusMerchantCenter='2' AND visible_udf_data LIKE \'%\"brandname\"\:\"Safety Media\"%\' AND custom_fields LIKE '%\"googlemcavail\"\:true%'")
-    # cur.execute("SELECT * FROM product WHERE statusMerchantCenter='2' AND custom_fields LIKE '%\"googlemcavail\"\:true%'")
-    cur.execute("SELECT * FROM product WHERE custom_fields LIKE '%\"googlemcavail\"\:true%'")
+    cur.execute("SELECT * FROM product WHERE statusMerchantCenter='2' AND custom_fields LIKE '%\"googlemcavail\"\:true%'")
+    # cur.execute("SELECT * FROM product WHERE custom_fields LIKE '%\"googlemcavail\"\:true%'")
     productsAll = []
     count = 0
     for (prod) in cur:
         count += 1
         productsAll.append(prod)
     print(count)
+
+    counter = 0
+    last = False
     for prod in productsAll:
-        print('Handling ' + prod[5])
+        counter += 1
+        if(counter == count):
+            last = True
+
+        # print('Handling ' + prod[5])
         custom_fields = json.loads(prod[22])
 
         # If parent, needs to be ignored. Only single products and variants need to go up
@@ -122,9 +189,10 @@ def main(argv):
             
             # Handle size
             sizeSet = False
+            issueWithValues = False
             # If custom size is set, parse that
             # TODOBARDIA Need to consider custom size being in cm or mm as well. Have to check if that even exists
-            if((json.loads(prod[22])['size'] != "") and (('"W' in json.loads(prod[22])['size']) or ('mmW' in json.loads(prod[22])['size'])) and (('"H' in json.loads(prod[22])['size']) or ('mmH' in json.loads(prod[22])['size']))):
+            if((json.loads(prod[22])['size'] != "") and (json.loads(prod[22])['size'][0].isdigit()) and (('"W' in json.loads(prod[22])['size']) or ('mmW' in json.loads(prod[22])['size'])) and (('"H' in json.loads(prod[22])['size']) or ('mmH' in json.loads(prod[22])['size']))):
                 # print('there is custom size')
                 a = 0
                 dimensions = json.loads(prod[22])['size'].split('x')
@@ -137,6 +205,8 @@ def main(argv):
                         dim = dimension.split('mm')[0].lstrip().rstrip()
                         dimUnit = 'mm'
                     # print(dim)
+                    if(not isValidNumber(dim)):
+                        issueWithValues = True
                     match a:
                         case 0:
                             # 'set width'
@@ -144,7 +214,7 @@ def main(argv):
                             if dimUnit == 'in':
                                 productGeneral['productWidth'] = {'value': dim, 'unit': 'in'}
                             elif dimUnit == 'mm':
-                                productGeneral['productWidth'] = {'value': dim/10, 'unit': 'cm'}
+                                productGeneral['productWidth'] = {'value': int(dim)/10.0, 'unit': 'cm'}
                             sizeSet = True
                         case 1:
                             #'set height'
@@ -152,23 +222,33 @@ def main(argv):
                             if dimUnit == 'in':
                                 productGeneral['productHeight'] = {'value': dim, 'unit': 'in'}
                             elif dimUnit == 'mm':
-                                productGeneral['productHeight'] = {'value': dim/10, 'unit': 'cm'}
+                                productGeneral['productHeight'] = {'value': int(dim)/10.0, 'unit': 'cm'}
                         case 2:
                             # 'set depth'
                             # print('set depth')
                             if dimUnit == 'in':
                                 productGeneral['productLength'] = {'value': dim, 'unit': 'in'}
                             elif dimUnit == 'mm':
-                                productGeneral['productLength'] = {'value': dim/10, 'unit': 'cm'}
+                                productGeneral['productLength'] = {'value': int(dim)/10.0, 'unit': 'cm'}
                     a+=1
                 if(a == 2):
                     # means there was no depth. Need to grab depth from dimensions tab of the UDFs
                     if(json.loads(prod[22])['depth'] != NULL):
                         productGeneral['productLength'] = {'value': json.loads(prod[22])['depth'], 'unit': 'in'}
-            elif((sizeSet == False) and (json.loads(prod[22])['primaryselector'] != "")):
+            
+            if(issueWithValues):
+                sizeSet = False
+            
+            if((sizeSet == False) and (json.loads(prod[22])['primaryselector'] != "")):
                 # custom size field was not filled, so we'll be using the selector reference instead
                 # print('there is a primaryselector')
                 # print(prod[9])
+                if('productWidth' in productGeneral):
+                    del productGeneral['productWidth']
+                if('productHeight' in productGeneral):
+                    del productGeneral['productHeight']
+                if('productLength' in productGeneral):
+                    del productGeneral['productLength']
                 try:
                     conn2 = mariadb.connect(
                         user="root",
@@ -219,14 +299,18 @@ def main(argv):
                                         
                                 # print(str(amount) + unit)
                                 dimCount += 1
-            elif((sizeSet == False)):
+            
+            if((sizeSet == False)):
                 # Grab straight from dimensions tab of spire
+                # print('Resorted to shipping sizes')
                 productGeneral['productWidth'] = {'value': json.loads(prod[22])['Width'], 'unit': 'in'}
                 productGeneral['productHeight'] = {'value': json.loads(prod[22])['Height'], 'unit': 'in'}
                 productGeneral['productLength'] = {'value': json.loads(prod[22])['depth'], 'unit': 'in'}
-            else:
-                print('None of the size methods worked. Something is wrong')
-                quit()
+                sizeSet = True
+            
+            if(sizeSet == False):
+                print(prod[5] + 'None of the size methods worked. Something is wrong')
+                # quit()
             
             # Handle customAttributes
             totalCustoms = []
@@ -280,159 +364,174 @@ def main(argv):
 
             # check if variant
             if(prod[4] is not None):
-                print('Variant')
-
-                # need to figure out the link from querying the parent\
                 try:
-                    conn3 = mariadb.connect(
-                        user="root",
-                        password="5LUxZA2CnEmZQ8dm",
-                        host="127.0.0.1",
-                        port=3306,
-                        database="safetymediaapp"
-                    )
-                except mariadb.Error as e:
-                    print(f"Error connecting to MariaDB Platform: {e}")
-                    sys.exit(1)
+                    # print('Variant')
 
-                # Second cursor to pull the needed info from the parent
-                cur2 = conn3.cursor()
-                cur2.execute(
-                    "SELECT custom_fields, bigc_product_id FROM product WHERE sku='" + prod[9] + "'")
-                for (parent) in cur2:
-                    variantURLCA = 'https://safetymedia.com/' + json.loads(parent[0])['seourl'].replace(' ', '-').lower() + '?setCurrencyId=1&sku=' + prod[5]
-                    variantURLUS = 'https://safetymedia.com/' + json.loads(parent[0])['seourl'].replace(' ', '-').lower() + '?setCurrencyId=2&sku=' + prod[5]
-                    parentBigcID = parent[1]
-                    # print(variantURLCA)
-                    # print(variantURLUS)
-                    # print(parentBigcID)
-                conn3.close()
+                    # need to figure out the link from querying the parent\
+                    try:
+                        conn3 = mariadb.connect(
+                            user="root",
+                            password="5LUxZA2CnEmZQ8dm",
+                            host="127.0.0.1",
+                            port=3306,
+                            database="safetymediaapp"
+                        )
+                    except mariadb.Error as e:
+                        print(f"Error connecting to MariaDB Platform: {e}")
+                        sys.exit(1)
 
-                variantBigCInfo = v3client.get('/catalog/products/' + str(parentBigcID) + '/variants/' + str(prod[4]))
+                    # Second cursor to pull the needed info from the parent
+                    cur2 = conn3.cursor()
+                    cur2.execute(
+                        "SELECT custom_fields, bigc_product_id FROM product WHERE sku='" + prod[9] + "'")
+                    for (parent) in cur2:
+                        variantURLCA = 'https://safetymedia.com/' + json.loads(parent[0])['seourl'].replace(' ', '-').replace("'","").replace('"','').lower() + '?setCurrencyId=1&sku=' + prod[5]
+                        variantURLUS = 'https://safetymedia.com/' + json.loads(parent[0])['seourl'].replace(' ', '-').replace("'","").replace('"','').lower() + '?setCurrencyId=2&sku=' + prod[5]
+                        parentBigcID = parent[1]
+                        # print(variantURLCA)
+                        # print(variantURLUS)
+                        # print(parentBigcID)
+                    conn3.close()
 
-                print('CA')
-                variantCA = copy(productGeneral)
+                    variantBigCInfo = v3client.get('/catalog/products/' + str(parentBigcID) + '/variants/' + str(prod[4]))
 
-                variantCA['id'] = 'online:EN:CA:' + prod[5]
-                variantCA['link'] = variantURLCA
-                variantCA['imageLink'] =  variantBigCInfo['data']['image_url']
-                variantCA['targetCountry'] = 'CA'
-                variantCA['price'] = {'value': prod[7], 'currency': 'CAD'}
-                variantCA['itemGroupId'] = prod[9]
-                # If gtin exists, set it
-                # TODOBARDIA IF BLANK,CHECK ISBN NUMBER, IF ISBN BLANK, PUT BLANK. IF EITHER EXISTS, SET IDENTIFIER TRUE,
-                if(('upc' in prod[25]) and (json.loads(prod[25])['upc'] != '')):
-                    variantCA['gtin'] = json.loads(prod[25])['upc']
-                    variantCA['identifierExists'] = 'True'
-                elif(('isbn' in prod[22]) and (json.loads(prod[22])['isbn'] != '')):
-                    variantCA['gtin'] = json.loads(prod[22])['isbn']
-                    variantCA['identifierExists'] = 'True'
+                    # print('CA')
+                    variantCA = copy(productGeneral)
 
-                # Construct the service object to interact with the Content API.
-                service, config, _ = common.init(argv, __doc__)
+                    variantCA['id'] = 'online:EN:CA:' + prod[5]
+                    variantCA['link'] = variantURLCA
+                    variantCA['imageLink'] =  variantBigCInfo['data']['image_url']
+                    variantCA['targetCountry'] = 'CA'
+                    variantCA['price'] = {'value': prod[7], 'currency': 'CAD'}
+                    variantCA['itemGroupId'] = prod[9]
+                    # If gtin exists, set it
+                    # TODOBARDIA IF BLANK,CHECK ISBN NUMBER, IF ISBN BLANK, PUT BLANK. IF EITHER EXISTS, SET IDENTIFIER TRUE,
+                    if(('upc' in prod[25]) and (json.loads(prod[25])['upc'] != '')):
+                        variantCA['gtin'] = json.loads(prod[25])['upc']
+                        variantCA['identifierExists'] = 'True'
+                    elif(('isbn' in prod[22]) and (json.loads(prod[22])['isbn'] != '')):
+                        variantCA['gtin'] = json.loads(prod[22])['isbn']
+                        variantCA['identifierExists'] = 'True'
 
-                # Get the merchant ID from merchant-info.json.
-                merchant_id = config['merchantId']
+                    # Construct the service object to interact with the Content API.
+                    # service, config, _ = common.init(argv, __doc__)
 
-                # print(variantCA)
-                # Create the request with the merchant ID and product object.
-                request = service.products().insert(merchantId=merchant_id, body=variantCA)
+                    # Get the merchant ID from merchant-info.json.
+                    # merchant_id = config['merchantId']
 
-                # Execute the request and print the result.
-                result = request.execute()
-                print('Product with offerId "%s" was updated.' %
-                      (result['offerId']))
-                totalSubmission += 1
+                    # print(variantCA)
+                    # Create the request with the merchant ID and product object.
+                    # request = service.products().insert(merchantId=merchant_id, body=variantCA)
 
-                print('US')
-                variantUS = copy(variantCA)
+                    # # Execute the request and print the result.
+                    # result = request.execute()
+                    # print('Product with offerId "%s" was updated.' %
+                    #       (result['offerId']))
+                    submitRequest(variantCA, False)
+                    totalSubmission += 1
 
-                variantUS['id'] = 'online:EN:US:' + prod[5]
-                variantUS['link'] = variantURLUS
-                variantUS['targetCountry'] = 'US'
-                variantUS['price'] = {'value': round(prod[7]/1.1, 2), 'currency': 'USD'}
+                    # print('US')
+                    variantUS = copy(variantCA)
+
+                    variantUS['id'] = 'online:EN:US:' + prod[5]
+                    variantUS['link'] = variantURLUS
+                    variantUS['targetCountry'] = 'US'
+                    variantUS['price'] = {'value': round(prod[7]/1.1, 2), 'currency': 'USD'}
 
 
-                # Construct the service object to interact with the Content API.
-                service, config, _ = common.init(argv, __doc__)
+                    # Construct the service object to interact with the Content API.
+                    # service, config, _ = common.init(argv, __doc__)
 
-                # Get the merchant ID from merchant-info.json.
-                merchant_id = config['merchantId']
+                    # # Get the merchant ID from merchant-info.json.
+                    # merchant_id = config['merchantId']
 
-                # print(variantUS)
-                # Create the request with the merchant ID and product object.
-                request = service.products().insert(merchantId=merchant_id, body=variantUS)
+                    # # print(variantUS)
+                    # # Create the request with the merchant ID and product object.
+                    # request = service.products().insert(merchantId=merchant_id, body=variantUS)
 
-                # Execute the request and print the result.
-                result = request.execute()
-                print('Product with offerId "%s" was updated.' %
-                      (result['offerId']))
-                totalSubmission += 1
+                    # # Execute the request and print the result.
+                    # result = request.execute()
+                    # print('Product with offerId "%s" was updated.' %
+                    #       (result['offerId']))
+                    submitRequest(variantUS, last)
+                    totalSubmission += 1
+                except:
+                    print(prod[5] + "variant doesn't exist in BigC")
 
             else:
-                print('Single product')
-                print('CA')
-                # singleProdBigCInfo = v3client.get('/catalog/products/' + str(prod[1]) + '/')
-                singleProdBigCInfo = api.Products.get(prod[1])
-                # print(singleProdBigCInfo)
-                singleCA = copy(productGeneral)
-                singleCA['id'] = 'online:EN:CA:' + prod[5]
-                singleCA['link'] = 'https://safetymedia.com/' + prod[5] + '/' + json.loads(prod[22])['seourl'].replace(' ', '-').lower() + '?setCurrencyId=1'
-                singleCA['imageLink'] =  singleProdBigCInfo['primary_image']['zoom_url']
-                singleCA['targetCountry'] = 'CA'
-                singleCA['price'] = {'value': prod[7], 'currency': 'CAD'}
-                # singleCA['itemGroupId'] = prod[9]
-                # If gtin exists, set it
-                if(('upc' in prod[25]) and (json.loads(prod[25])['upc'] != '')):
-                    singleCA['gtin'] = json.loads(prod[25])['upc']
-                    singleCA['identifierExists'] = 'True'
-                elif(('isbn' in prod[22]) and (json.loads(prod[22])['isbn'] != '')):
-                    singleCA['gtin'] = json.loads(prod[22])['isbn']
-                    singleCA['identifierExists'] = 'True'
-                
-                # Construct the service object to interact with the Content API.
-                service, config, _ = common.init(argv, __doc__)
+                if(prod[9] != ""):
+                    # print('============================================================================')
+                    print(prod[5] + "Variant should be on BigC but isn't")
+                else:
+                    # print('Single product')
+                    # print('CA')
+                    # singleProdBigCInfo = v3client.get('/catalog/products/' + str(prod[1]) + '/')
+                    try:
+                        singleProdBigCInfo = api.Products.get(prod[1])
+                        # print(singleProdBigCInfo)
+                        singleCA = copy(productGeneral)
+                        singleCA['id'] = 'online:EN:CA:' + prod[5]
+                        singleCA['link'] = 'https://safetymedia.com/' + prod[5] + '/' + json.loads(prod[22])['seourl'].replace(' ', '-').replace("'","").replace('"','').lower() + '?setCurrencyId=1'
+                        singleCA['imageLink'] =  singleProdBigCInfo['primary_image']['zoom_url']
+                        singleCA['targetCountry'] = 'CA'
+                        singleCA['price'] = {'value': prod[7], 'currency': 'CAD'}
+                        # singleCA['itemGroupId'] = prod[9]
+                        # If gtin exists, set it
+                        if(('upc' in prod[25]) and (json.loads(prod[25])['upc'] != '')):
+                            singleCA['gtin'] = json.loads(prod[25])['upc']
+                            singleCA['identifierExists'] = 'True'
+                        elif(('isbn' in prod[22]) and (json.loads(prod[22])['isbn'] != '')):
+                            singleCA['gtin'] = json.loads(prod[22])['isbn']
+                            singleCA['identifierExists'] = 'True'
+                        
+                        # Construct the service object to interact with the Content API.
+                        # service, config, _ = common.init(argv, __doc__)
 
-                # Get the merchant ID from merchant-info.json.
-                merchant_id = config['merchantId']
+                        # # Get the merchant ID from merchant-info.json.
+                        # merchant_id = config['merchantId']
 
-                # print(singleCA)
-                # Create the request with the merchant ID and product object.
-                request = service.products().insert(merchantId=merchant_id, body=singleCA)
+                        # # print(singleCA)
+                        # # Create the request with the merchant ID and product object.
+                        # request = service.products().insert(merchantId=merchant_id, body=singleCA)
 
-                # Execute the request and print the result.
-                result = request.execute()
-                print('Product with offerId "%s" was updated.' %
-                      (result['offerId']))
-                totalSubmission += 1
+                        # # Execute the request and print the result.
+                        # result = request.execute()
+                        # print('Product with offerId "%s" was updated.' %
+                        #       (result['offerId']))
+                        submitRequest(singleCA, False)
+                        totalSubmission += 1
 
-                print('US')
-                singleUS = copy(singleCA)
+                        # print('US')
+                        singleUS = copy(singleCA)
 
-                singleUS['id'] = 'online:EN:US:' + prod[5]
-                singleUS['link'] = 'https://safetymedia.com/' + prod[5] + '/' + json.loads(prod[22])['seourl'].replace(' ', '-').lower() + '?setCurrencyId=2'
-                singleUS['targetCountry'] = 'US'
-                singleUS['price'] = {'value': round(prod[7]/1.1, 2), 'currency': 'USD'}
+                        singleUS['id'] = 'online:EN:US:' + prod[5]
+                        singleUS['link'] = 'https://safetymedia.com/' + prod[5] + '/' + json.loads(prod[22])['seourl'].replace(' ', '-').lower() + '?setCurrencyId=2'
+                        singleUS['targetCountry'] = 'US'
+                        singleUS['price'] = {'value': round(prod[7]/1.1, 2), 'currency': 'USD'}
 
-                # Construct the service object to interact with the Content API.
-                service, config, _ = common.init(argv, __doc__)
+                        # Construct the service object to interact with the Content API.
+                        # service, config, _ = common.init(argv, __doc__)
 
-                # Get the merchant ID from merchant-info.json.
-                merchant_id = config['merchantId']
+                        # # Get the merchant ID from merchant-info.json.
+                        # merchant_id = config['merchantId']
 
-                # print(singleUS)
-                # Create the request with the merchant ID and product object.
-                # request = service.products().insert(merchantId=merchant_id, body=singleUS)
-                request = service.products().insert(merchantId=merchant_id, body=singleUS)
+                        # # print(singleUS)
+                        # # Create the request with the merchant ID and product object.
+                        # # request = service.products().insert(merchantId=merchant_id, body=singleUS)
+                        # request = service.products().insert(merchantId=merchant_id, body=singleUS)
 
-                # Execute the request and print the result.
-                result = request.execute()
-                print('Product with offerId "%s" was updated.' %
-                      (result['offerId']))
-                totalSubmission += 1
+                        # # Execute the request and print the result.
+                        # result = request.execute()
+                        # print('Product with offerId "%s" was updated.' %
+                        #       (result['offerId']))
+                        submitRequest(singleUS, last)
+                        totalSubmission += 1
+                    except:
+                        print(prod[5] + 'Resource didnt exist in BigC')
 
         else:
-            print('Parent')
+            1
+            # print('Parent')
     print('Total submissions: ' + str(totalSubmission))
     quit()
 

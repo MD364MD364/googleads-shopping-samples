@@ -1,0 +1,669 @@
+4594
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSEFP-PH-150150Variant should be on BigC but isn't
+IMSEFP-PV-150150Variant should be on BigC but isn't
+IMSEGR-PH-100100Variant should be on BigC but isn't
+IMSEGR-PH-150150Variant should be on BigC but isn't
+IMSEGR-PV-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSESG-PH-150150Variant should be on BigC but isn't
+IMSESG-PV-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSFDA-PH-150150Variant should be on BigC but isn't
+IMSFDC-PH-150150Variant should be on BigC but isn't
+IMSFDM-PH-150150Variant should be on BigC but isn't
+IMSFDV-PH-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSFP-PH-150150Variant should be on BigC but isn't
+IMSFPP-PH-150150Variant should be on BigC but isn't
+IMSFPP-PV-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSMONP-PH-100100Variant should be on BigC but isn't
+IMSMONP-PH-150150Variant should be on BigC but isn't
+IMSMONP-PV-100100Variant should be on BigC but isn't
+IMSMONP-PV-150150Variant should be on BigC but isn't
+IMSPDI-PH-100100Variant should be on BigC but isn't
+IMSPDI-PH-150150Variant should be on BigC but isn't
+IMSPDI-PV-100100Variant should be on BigC but isn't
+IMSPDI-PV-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSPF6-PH-100100Resource didnt exist in BigC
+IMSPF6-PH-150150Resource didnt exist in BigC
+IMSPF6-PV-100100Resource didnt exist in BigC
+IMSPF6-PV-150150Resource didnt exist in BigC
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSPHH-PH-100100Variant should be on BigC but isn't
+IMSPHH-PH-150150Variant should be on BigC but isn't
+IMSPHH-PV-100100Variant should be on BigC but isn't
+IMSPHH-PV-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSPMG-PH-100100Variant should be on BigC but isn't
+IMSPMG-PH-150150Variant should be on BigC but isn't
+IMSPMG-PV-100100Variant should be on BigC but isn't
+IMSPMG-PV-150150Variant should be on BigC but isn't
+IMSPRS-PH-100100Variant should be on BigC but isn't
+IMSPRS-PH-150150Variant should be on BigC but isn't
+IMSPRS-PV-100100Variant should be on BigC but isn't
+IMSPRS-PV-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSRCFP-PH-150150Variant should be on BigC but isn't
+IMSRCFP-PV-150150Variant should be on BigC but isn't
+IMSRCFPV-PH-150150Variant should be on BigC but isn't
+IMSRCFPV-PV-150150Variant should be on BigC but isn't
+IMSRCFS-PH-150150Variant should be on BigC but isn't
+IMSRCH-PH-150150Variant should be on BigC but isn't
+IMSRCH-PV-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSRFDA-PH-150150Variant should be on BigC but isn't
+IMSRRSC-PH-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSRRSC-PV-150150Variant should be on BigC but isn't
+IMSRRSH-PH-150150Variant should be on BigC but isn't
+IMSRRSH-PV-150150Variant should be on BigC but isn't
+IMSRRSN-PH-150150Variant should be on BigC but isn't
+IMSRRSN-PV-150150Variant should be on BigC but isn't
+IMSRRSP-PH-150150Variant should be on BigC but isn't
+IMSRRSP-PV-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSSIN-PH-150150Variant should be on BigC but isn't
+IMSSIN-PV-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSSPS-PH-150150Variant should be on BigC but isn't
+IMSSPS-PV-150150Variant should be on BigC but isn't
+IMSSSV-PH-150150Variant should be on BigC but isn't
+IMSSSV-PV-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSSVP-PH-100100Variant should be on BigC but isn't
+IMSSVP-PH-150150Variant should be on BigC but isn't
+IMSSVP-PV-100100Variant should be on BigC but isn't
+IMSSVP-PV-150150Variant should be on BigC but isn't
+IMSSVS-PH-150150Variant should be on BigC but isn't
+IMSSVS-PV-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+IMSWMG-PH-100100Variant should be on BigC but isn't
+IMSWMG-PH-150150Variant should be on BigC but isn't
+IMSWMG-PV-100100Variant should be on BigC but isn't
+IMSWMG-PV-150150Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+RMSEL-PH-LAvariant doesn't exist in BigC
+RMSEL-PH-RUvariant doesn't exist in BigC
+RMSES-PH-LAvariant doesn't exist in BigC
+RMSE-PH-LAvariant doesn't exist in BigC
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+RMSE-PH-RUvariant doesn't exist in BigC
+RMSFE-PH-LAvariant doesn't exist in BigC
+RMSFE-PH-RUvariant doesn't exist in BigC
+RMSNT-PH-LAvariant doesn't exist in BigC
+RMSNT-PH-RDvariant doesn't exist in BigC
+RMSNT-PH-RUvariant doesn't exist in BigC
+RMSNT-PH-ULvariant doesn't exist in BigC
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+SI2TNENAvariant doesn't exist in BigC
+SI2TNENABvariant doesn't exist in BigC
+SI2TNENACvariant doesn't exist in BigC
+SI2TNENAPHvariant doesn't exist in BigC
+SI2TNENBvariant doesn't exist in BigC
+SI2TNENPvariant doesn't exist in BigC
+SI2TNENPHvariant doesn't exist in BigC
+SI2TNENSvariant doesn't exist in BigC
+SI2TNENSGvariant doesn't exist in BigC
+SI2TNENVvariant doesn't exist in BigC
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+SA21AD-2Resource didnt exist in BigC
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+SI70-2Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+SIG59Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+SIP49Variant should be on BigC but isn't
+SIP49-2Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+SMD008-L1Variant should be on BigC but isn't
+SMD008-L2Variant should be on BigC but isn't
+SMD008-P1Variant should be on BigC but isn't
+SMD008-P2Variant should be on BigC but isn't
+SMD008-P3Variant should be on BigC but isn't
+SMD009-L1Variant should be on BigC but isn't
+SMD009-L2Variant should be on BigC but isn't
+SMD009-P1Variant should be on BigC but isn't
+SMD009-P2Variant should be on BigC but isn't
+SMD009-P3Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+SMD012-L1Variant should be on BigC but isn't
+SMD012-L2Variant should be on BigC but isn't
+SMD012-P1Variant should be on BigC but isn't
+SMD012-P2Variant should be on BigC but isn't
+SMD012-P3Variant should be on BigC but isn't
+SMD013-L1Variant should be on BigC but isn't
+SMD013-L2Variant should be on BigC but isn't
+SMD013-P1Variant should be on BigC but isn't
+SMD013-P2Variant should be on BigC but isn't
+SMD013-P3Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+SMD046-L2variant doesn't exist in BigC
+SMD046-P2variant doesn't exist in BigC
+SMD046-P3Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+SI90SGVariant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+SIF20FPHVariant should be on BigC but isn't
+SIB190AEPVariant should be on BigC but isn't
+SIB190AESVariant should be on BigC but isn't
+SIB190AEVVariant should be on BigC but isn't
+SIB290AEPVariant should be on BigC but isn't
+SIB290AESVariant should be on BigC but isn't
+SIB290AEVVariant should be on BigC but isn't
+SIB190AEAVariant should be on BigC but isn't
+SIB290AEAVariant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+SI11-7Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+SI11P-7Variant should be on BigC but isn't
+SI11S-7Variant should be on BigC but isn't
+SI11B-7Variant should be on BigC but isn't
+Using service account credentials from C:\Users\Bardia.g/shopping-samples\content\service-account.json.
+Merchant Center 507522930 is not an MCA.
+Website for Merchant Center 507522930: https://safetymedia.com
+Total submissions: 8922
