@@ -43,17 +43,21 @@ def main(argv):
 
     def submitRequest(requestBody, isLast):
         # print('Submission #'+ str(len(requests)) + ' received')
+        print('Submission: ')
+        print(requestBody)
         BATCH_SIZE = 50
 
-        requests.append({
-            'batchId': len(requests),
-            'merchantId': '507522930',
-            'method': 'insert',
-            'product': requestBody,
-            'updateMask': 'availability,brand,channel,condition,contentLanguage,customAttributes,description,id,imageLink,link,maxHandlingTime,minHandlingTime,mpn,offerId,price,productHeight,productLength,productWeight,productWidth,sellOnGoogleQuantity,targetCountry,title'
-            })
+        if(requestBody != ''):
+            requests.append({
+                'batchId': len(requests),
+                'merchantId': '507522930',
+                'method': 'insert',
+                'product': requestBody,
+                'updateMask': 'gtin,availability,brand,channel,condition,contentLanguage,customAttributes,description,id,imageLink,link,maxHandlingTime,minHandlingTime,mpn,offerId,price,productHeight,productLength,productWeight,productWidth,sellOnGoogleQuantity,targetCountry,title,customLabel0'
+                # 'updateMask': 'gtin,availability,brand,channel,condition,contentLanguage,customAttributes,description,id,imageLink,link,maxHandlingTime,minHandlingTime,mpn,offerId,price,productHeight,productLength,productWeight,productWidth,sellOnGoogleQuantity,title,promotionIds'
+                })
 
-        if((len(requests) >= BATCH_SIZE) or (isLast)):
+        if((len(requests) >= BATCH_SIZE) or ((isLast == True) and (len(requests) > 0))):
             try:
                 conn4 = mariadb.connect(
                     user="root",
@@ -92,15 +96,18 @@ def main(argv):
             result = request.execute()
             # print(json.dumps(result, indent=4, sort_keys=True))
             if result['kind'] == 'content#productsCustomBatchResponse':
+                print('result:')
+                print(result)
                 entries = result['entries']
                 for entry in entries:
                     product = entry.get('product')
                     errors = entry.get('errors')
+                    print(errors)
                     if product:
                         # print('Product "%s" with offerId "%s" was created.' %
                         #     (product['id'], product['offerId']))
                         finishedProducts.append(product['offerId'])
-                        print(product['offerId'])
+                        print('sent ' + product['offerId'])
                         cur4.execute("UPDATE product SET statusMerchantCenter='1' WHERE sku='" + product['offerId'].lstrip().rstrip() + "'")
                         conn4.commit()
                         # cur4.execute("UPDATE product SET statusMerchantCenter='1' WHERE sku='" + temp + "'")
@@ -233,19 +240,30 @@ def main(argv):
                 'availability': 'in stock',
                 'condition': 'new',
                 'sellOnGoogleQuantity': 11,
-                'mpn': prod['sku'],
                 'minHandlingTime': int(json.loads(prod['custom_fields'])['RegProdDel']),
                 'maxHandlingTime': (json.loads(prod['custom_fields'])['prodelrange'] + int(json.loads(prod['custom_fields'])['RegProdDel'])),
                 'productWeight': {'value': prod['weight'], 'unit': 'lb'}
             }
 
+            if('mpn' in json.loads(prod['custom_fields'])):
+                if (json.loads(prod['custom_fields'])['mpn'] != ''):
+                    productGeneral['mpn'] = json.loads(prod['custom_fields'])['mpn']
+                elif (('brandname' in json.loads(prod['visible_udf_data'])) and (json.loads(prod['visible_udf_data'])['brandname'].lower() == "safety media")):
+                    productGeneral['mpn'] = prod['sku']
+            elif (('brandname' in json.loads(prod['visible_udf_data'])) and (json.loads(prod['visible_udf_data'])['brandname'].lower() == "safety media")):
+                productGeneral['mpn'] = prod['sku']
+
             # If brandname exists in spire, set it
             if(('brandname' in json.loads(prod['visible_udf_data'])) and (json.loads(prod['visible_udf_data'])['brandname'] != "")):
                 productGeneral['brand'] = json.loads(prod['visible_udf_data'])['brandname']
             # If promotionIds exists, set it
-            if(('googlepromoid' in json.loads(prod['visible_udf_data'])) and (json.loads(prod['custom_fields'])['googlepromoid'] != "")):
+            print('check promotionIds')
+            if(('googlepromoid' in json.loads(prod['custom_fields'])) and (json.loads(prod['custom_fields'])['googlepromoid'] != "")):
                 # separates values using a comma
-                productGeneral['promotionIds'] = json.loads(prod['custom_fields'])['googlepromoid'].split(',')
+                productGeneral['customLabel0'] = json.loads(prod['custom_fields'])['googlepromoid']
+            else:
+                productGeneral['customLabel0'] = 'no_label'
+
             
             # Handle size
             sizeSet = False
@@ -253,7 +271,7 @@ def main(argv):
             # If custom size is set, parse that
             # TODOBARDIA Need to consider custom size being in cm or mm as well. Have to check if that even exists
             if((json.loads(prod['custom_fields'])['size'] != "") and (json.loads(prod['custom_fields'])['size'][0].isdigit()) and (('"W' in json.loads(prod['custom_fields'])['size']) or ('mmW' in json.loads(prod['custom_fields'])['size'])) and (('"H' in json.loads(prod['custom_fields'])['size']) or ('mmH' in json.loads(prod['custom_fields'])['size']))):
-                # print('there is custom size')
+                # there is custom size
                 a = 0
                 dimensions = json.loads(prod['custom_fields'])['size'].split('x')
                 for dimension in dimensions:
@@ -264,13 +282,11 @@ def main(argv):
                     elif('mm' in dimension):
                         dim = dimension.split('mm')[0].lstrip().rstrip()
                         dimUnit = 'mm'
-                    # print(dim)
                     if(not isValidNumber(dim)):
                         issueWithValues = True
                     match a:
                         case 0:
                             # 'set width'
-                            # print('set width')
                             if dimUnit == 'in':
                                 productGeneral['productWidth'] = {'value': dim, 'unit': 'in'}
                             elif dimUnit == 'mm':
@@ -278,14 +294,12 @@ def main(argv):
                             sizeSet = True
                         case 1:
                             #'set height'
-                            # print('set height')
                             if dimUnit == 'in':
                                 productGeneral['productHeight'] = {'value': dim, 'unit': 'in'}
                             elif dimUnit == 'mm':
                                 productGeneral['productHeight'] = {'value': int(dim)/10.0, 'unit': 'cm'}
                         case 2:
                             # 'set depth'
-                            # print('set depth')
                             if dimUnit == 'in':
                                 productGeneral['productLength'] = {'value': dim, 'unit': 'in'}
                             elif dimUnit == 'mm':
@@ -301,8 +315,7 @@ def main(argv):
             
             if((sizeSet == False) and (json.loads(prod['custom_fields'])['primaryselector'] != "")):
                 # custom size field was not filled, so we'll be using the selector reference instead
-                # print('there is a primaryselector')
-                # print(prod['parent_product_code'])
+                # there is a primaryselector
                 if('productWidth' in productGeneral):
                     del productGeneral['productWidth']
                 if('productHeight' in productGeneral):
@@ -320,15 +333,13 @@ def main(argv):
                 except mariadb.Error as e:
                     print(f"Error connecting to MariaDB Platform: {e}")
                     sys.exit(1)
-                # print('using second cursor')
+                # using second cursor
                 cur2 = conn2.cursor()
                 cur2.execute(
                     "SELECT custom_fields FROM product WHERE sku='" + prod['parent_product_code'] + "'")
                 for (parent) in cur2:
                     if('size' in json.loads(parent[0])['selectorref'].lower()):
                         position = json.loads(parent[0])['selectorref'].lower()[0 : json.loads(parent[0])['selectorref'].lower().index('size')].count(',') + 1
-                        # print('Selector has size option #' + str(position))
-                        # print(json.loads(prod['custom_fields'])['ref' + str(position)])
                         dropdownDimensions = json.loads(prod['custom_fields'])['ref' + str(position)]
                         if(('w' in dropdownDimensions.lower()) and ('h' in dropdownDimensions.lower())):
                             # at least width and length are in
@@ -362,7 +373,7 @@ def main(argv):
                 conn2.close()
             if((sizeSet == False)):
                 # Grab straight from dimensions tab of spire
-                # print('Resorted to shipping sizes')
+                # Resorted to shipping sizes
                 productGeneral['productWidth'] = {'value': json.loads(prod['custom_fields'])['Width'], 'unit': 'in'}
                 productGeneral['productHeight'] = {'value': json.loads(prod['custom_fields'])['Height'], 'unit': 'in'}
                 productGeneral['productLength'] = {'value': json.loads(prod['custom_fields'])['depth'], 'unit': 'in'}
@@ -397,8 +408,7 @@ def main(argv):
             else:
                 # Need to check if it's a variant with a selector dropdown of material
                 if(json.loads(prod['custom_fields'])['primaryselector'] != ""):
-                    # print('there is a primaryselector')
-                    # print(prod['parent_product_code'])
+                    # there is a primaryselector
                     try:
                         conn2 = mariadb.connect(
                             user="root",
@@ -416,8 +426,6 @@ def main(argv):
                     for (parent) in cur2:
                         if('material' in json.loads(parent[0])['selectorref'].lower()):
                             position = json.loads(parent[0])['selectorref'].lower()[0 : json.loads(parent[0])['selectorref'].lower().index('material')].count(',') + 1
-                            # print('Selector has material option #' + str(position))
-                            # print(json.loads(prod['custom_fields'])['ref' + str(position)])
                             productGeneral['material'] = json.loads(prod['custom_fields'])['ref' + str(position)]
 
 
@@ -425,8 +433,7 @@ def main(argv):
             # check if variant
             if(prod['variant_id'] is not None):
                 try:
-                    # print('Variant')
-
+                    # Variant
                     # need to figure out the link from querying the parent\
                     try:
                         conn3 = mariadb.connect(
@@ -440,6 +447,7 @@ def main(argv):
                         print(f"Error connecting to MariaDB Platform: {e}")
                         sys.exit(1)
 
+
                     # Second cursor to pull the needed info from the parent
                     cur2 = conn3.cursor()
                     cur2.execute(
@@ -450,14 +458,12 @@ def main(argv):
                         # variantURLUS = 'https://safetymedia.com/' + json.loads(parent[0])['seourl'].replace(' ', '-').replace("'","").replace('"','').replace(',','').lower() + '?setCurrencyId=2&sku=' + prod['sku']
                         variantURLUS = 'https://safetymedia.com/' + fixURL(json.loads(parent[0])['seourl']).lower() + '?setCurrencyId=2&sku=' + prod['sku']
                         parentBigcID = parent[1]
-                        # print(variantURLCA)
-                        # print(variantURLUS)
-                        # print(parentBigcID)
                     conn3.close()
 
+                    
                     variantBigCInfo = v3client.get('/catalog/products/' + str(parentBigcID) + '/variants/' + str(prod['variant_id']))
 
-                    # print('CA')
+                    # CA
                     variantCA = copy(productGeneral)
 
                     variantCA['id'] = 'online:EN:CA:' + prod['sku']
@@ -466,6 +472,8 @@ def main(argv):
                     variantCA['targetCountry'] = 'CA'
                     variantCA['price'] = {'value': prod['price'], 'currency': 'CAD'}
                     variantCA['itemGroupId'] = prod['parent_product_code']
+                    variantCA['customLabel0'] = productGeneral['customLabel0'] + '-CA'
+                    variantCA['customLabel0'] = 'test'
                     # If gtin exists, set it
                     # TODOBARDIA IF BLANK,CHECK ISBN NUMBER, IF ISBN BLANK, PUT BLANK. IF EITHER EXISTS, SET IDENTIFIER TRUE,
                     if(('upc' in prod['upcs_values']) and (json.loads(prod['upcs_values'])['upc'] != '')):
@@ -475,13 +483,13 @@ def main(argv):
                         variantCA['gtin'] = json.loads(prod['custom_fields'])['isbn']
                         variantCA['identifierExists'] = 'True'
 
+                    # print(variantCA)
                     # Construct the service object to interact with the Content API.
                     # service, config, _ = common.init(argv, __doc__)
 
                     # Get the merchant ID from merchant-info.json.
                     # merchant_id = config['merchantId']
 
-                    # print(variantCA)
                     # Create the request with the merchant ID and product object.
                     # request = service.products().insert(merchantId=merchant_id, body=variantCA)
 
@@ -489,16 +497,21 @@ def main(argv):
                     # result = request.execute()
                     # print('Product with offerId "%s" was updated.' %
                     #       (result['offerId']))
+                    print('Submitting variant CA')
+                    # print(variantCA)
                     submitRequest(variantCA, False)
+                    # print('submitted variant CA')
                     totalSubmission += 1
 
-                    # print('US')
+                    # US
                     variantUS = copy(variantCA)
 
                     variantUS['id'] = 'online:EN:US:' + prod['sku']
                     variantUS['link'] = variantURLUS
                     variantUS['targetCountry'] = 'US'
                     variantUS['price'] = {'value': round(prod['price']/1.1, 2), 'currency': 'USD'}
+                    variantUS['customLabel0'] = productGeneral['customLabel0'] + '-US'
+                    variantUS['customLabel0'] = 'test'
 
 
                     # Construct the service object to interact with the Content API.
@@ -515,21 +528,22 @@ def main(argv):
                     # result = request.execute()
                     # print('Product with offerId "%s" was updated.' %
                     #       (result['offerId']))
-                    submitRequest(variantUS, last)
-                    totalSubmission += 1
+                    if (json.loads(prod['custom_fields'])['googlemcexcludeus'] == False):
+                        print('Submitting variant US')
+                        submitRequest(variantUS, last)
+                        totalSubmission += 1
                 except:
-                    print(prod['sku'] + "variant doesn't exist in BigC")
-
+                    print(prod['sku'] + " variant doesn't exist in BigC")
             else:
                 if(prod['parent_product_code'] != ""):
-                    # print('============================================================================')
                     print(prod['sku'] + "Variant should be on BigC but isn't")
                 else:
-                    # print('Single product')
-                    # print('CA')
+                    # Single product
+                    # CA
                     # singleProdBigCInfo = v3client.get('/catalog/products/' + str(prod['bigc_product_id']) + '/')
                     try:
                         singleProdBigCInfo = api.Products.get(prod['bigc_product_id'])
+                        # print(singleProdBigCInfo)
                         # print(singleProdBigCInfo)
                         singleCA = copy(productGeneral)
                         singleCA['id'] = 'online:EN:CA:' + prod['sku']
@@ -538,22 +552,25 @@ def main(argv):
                         singleCA['imageLink'] =  singleProdBigCInfo['primary_image']['zoom_url']
                         singleCA['targetCountry'] = 'CA'
                         singleCA['price'] = {'value': prod['price'], 'currency': 'CAD'}
+                        singleCA['customLabel0'] = productGeneral['customLabel0'] + '-CA'
+
                         # singleCA['itemGroupId'] = prod['parent_product_code']
                         # If gtin exists, set it
                         if(('upc' in prod['upcs_values']) and (json.loads(prod['upcs_values'])['upc'] != '')):
                             singleCA['gtin'] = json.loads(prod['upcs_values'])['upc']
                             singleCA['identifierExists'] = 'True'
-                            print('made it')
+                            # print('made it')
                         elif(('isbn' in prod['custom_fields']) and (json.loads(prod['custom_fields'])['isbn'] != '')):
                             singleCA['gtin'] = json.loads(prod['custom_fields'])['isbn']
                             singleCA['identifierExists'] = 'True'
+                        # singleCA['mpn'] = 
                         # Construct the service object to interact with the Content API.
                         # service, config, _ = common.init(argv, __doc__)
 
                         # # Get the merchant ID from merchant-info.json.
                         # merchant_id = config['merchantId']
 
-                        print(singleCA)
+                        # print(singleCA)
                         # # Create the request with the merchant ID and product object.
                         # request = service.products().insert(merchantId=merchant_id, body=singleCA)
 
@@ -564,13 +581,14 @@ def main(argv):
                         submitRequest(singleCA, False)
                         totalSubmission += 1
 
-                        # print('US')
+                        # US
                         singleUS = copy(singleCA)
 
                         singleUS['id'] = 'online:EN:US:' + prod['sku']
                         singleUS['link'] = 'https://safetymedia.com/' + prod['sku'] + '/' + fixURL(json.loads(prod['custom_fields'])['seourl']).lower() + '?setCurrencyId=2'
                         singleUS['targetCountry'] = 'US'
                         singleUS['price'] = {'value': round(prod['price']/1.1, 2), 'currency': 'USD'}
+                        singleUS['customLabel0'] = productGeneral['customLabel0'] + '-US'
 
                         # Construct the service object to interact with the Content API.
                         # service, config, _ = common.init(argv, __doc__)
@@ -587,8 +605,9 @@ def main(argv):
                         # result = request.execute()
                         # print('Product with offerId "%s" was updated.' %
                         #       (result['offerId']))
-                        submitRequest(singleUS, last)
-                        totalSubmission += 1
+                        if ( (not 'googlemcexcludeus' in json.loads(prod['custom_fields'])) or (('googlemcexcludeus' in json.loads(prod['custom_fields'])) and (json.loads(prod['custom_fields'])['googlemcexcludeus'] == False))):
+                            submitRequest(singleUS, last)
+                            totalSubmission += 1
                     except:
                         print(prod['sku'] + 'Resource didnt exist in BigC')
 
@@ -596,6 +615,7 @@ def main(argv):
             1
             # print('Parent')
         # exit()
+    submitRequest('', True)
     print('Total submissions: ' + str(totalSubmission))
     quit()
 
@@ -672,7 +692,7 @@ def main(argv):
         'link': variantURLCA,
         'imageLink': variantBigCInfo['data']['image_url'],
         'contentLanguage': 'en',
-        'targetCountry': 'CA',
+        # 'targetCountry': '',
         'channel': 'online',
         'availability': 'in stock',
         'condition': 'new',
