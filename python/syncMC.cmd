@@ -1,2 +1,2 @@
 python -m shopping.content.products.my-insert
-timeout 5
+timeout /t 5 /nobreak
